@@ -1,0 +1,11 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: helpdesk
+
+
+jwt:
+  token: 1YKhBkyddbzbF7LLWphxkrdDgLUGzFDpeNNfyB8Rdysiu5tHlR4L9YOgjjmZppFJ3SorTn9ycsXMnHTPZObZnp5MPhm5NrFHAuzU
+  expiration: 5
