@@ -1,11 +1,13 @@
 package br.com.helpdesk.api.security.jwt;
 
-import br.com.helpdesk.api.entity.User;
-import br.com.helpdesk.api.enums.ProfileEnum;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import java.util.List;
+import br.com.helpdesk.api.entity.User;
+import br.com.helpdesk.api.enums.ProfileEnum;
 
 public class JwtUserFactory {
 
@@ -18,7 +20,7 @@ public class JwtUserFactory {
     }
 
     private static List<GrantedAuthority> mapToGrantAuthority(ProfileEnum profileEnum){
-        return List.of(new SimpleGrantedAuthority(profileEnum.toString()));
+        return  Arrays.asList((new SimpleGrantedAuthority(profileEnum.toString())));
     }
 
 }
