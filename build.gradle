@@ -25,6 +25,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation "jakarta.xml.bind:jakarta.xml.bind-api:2.3.2"
 	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.4'
+	// https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine
+	implementation 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
 
 
 	// https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt-jackson
@@ -47,4 +49,12 @@ dependencies {
 
 test {
 	useJUnitPlatform()
+	
+	afterTest { desc, result -> 
+        logger.quiet "Test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
+    
+    beforeTest { descriptor ->
+     logger.lifecycle("Running test: " + descriptor.name)
+    }
 }
